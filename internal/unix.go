@@ -1,5 +1,7 @@
 //go:build !(darwin || ios || windows)
+
 package internal
+
 // linux || freebsd || openbsd || netbsd || solaris || aix || dragonfly || illumos || plan9
 import (
 	"errors"
@@ -9,7 +11,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/christopherdavenport/platformdirs-go/internal/core"
+	"github.com/OGDeguy/platformdirs-go/internal/core"
 )
 
 func customGetuid() (int, error) {

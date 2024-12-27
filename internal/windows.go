@@ -1,10 +1,11 @@
 //go:build windows
+
 package internal
 
 import (
 	"errors"
 	"fmt"
-	"github.com/christopherdavenport/platformdirs-go/internal/core"
+	"github.com/OGDeguy/platformdirs-go/internal/core"
 
 	"path/filepath"
 
@@ -48,9 +49,10 @@ func get_win_folder_from_registry(csidl_name string) (string, error) {
 }
 
 /*
-	data directory tied to the user, e.g.
-		``%USERPROFILE%\\AppData\\Local\\$appauthor\\$appname`` (not roaming) or
-		``%USERPROFILE%\\AppData\\Roaming\\$appauthor\\$appname`` (roaming)
+data directory tied to the user, e.g.
+
+	``%USERPROFILE%\\AppData\\Local\\$appauthor\\$appname`` (not roaming) or
+	``%USERPROFILE%\\AppData\\Roaming\\$appauthor\\$appname`` (roaming)
 */
 func UserDataDir(dir core.PlatformParams) (string, error) {
 	var csidl string
@@ -68,7 +70,7 @@ func UserDataDir(dir core.PlatformParams) (string, error) {
 }
 
 /*
-data directory shared by users, e.g. ``C:\\ProgramData\\$appauthor\\$appname``"""
+data directory shared by users, e.g. “C:\\ProgramData\\$appauthor\\$appname“"""
 */
 func SiteDataDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_COMMON_APPDATA"
@@ -113,7 +115,7 @@ func UserStateDir(dir core.PlatformParams) (string, error) {
 }
 
 /*
-log directory tied to the user, same as `user_data_dir` if not opinionated else ``Logs`` in it
+log directory tied to the user, same as `user_data_dir` if not opinionated else “Logs“ in it
 */
 func UserLogDir(dir core.PlatformParams) (string, error) {
 	path, err := UserDataDir(dir)
@@ -134,7 +136,7 @@ func UserLogDir(dir core.PlatformParams) (string, error) {
 /*
 documents directory tied to the user e.g. `%USERPROFILE%\\Documents`
 */
-func  UserDocumentsDir(dir core.PlatformParams) (string, error) {
+func UserDocumentsDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_PERSONAL"
 	folder, err := get_win_folder_from_registry(csidl)
 	if err != nil {
@@ -146,7 +148,7 @@ func  UserDocumentsDir(dir core.PlatformParams) (string, error) {
 /*
 downloads directory tied to the user e.g. `%USERPROFILE%\\Downloads`
 */
-func  UserDowloadsDir(dir core.PlatformParams) (string, error) {
+func UserDowloadsDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_DOWNLOADS"
 	folder, err := get_win_folder_from_registry(csidl)
 	if err != nil {
@@ -158,7 +160,7 @@ func  UserDowloadsDir(dir core.PlatformParams) (string, error) {
 /*
 pictures directory tied to the user e.g. `%USERPROFILE%\\Pictures`
 */
-func  UserPicturesDir(dir core.PlatformParams) (string, error) {
+func UserPicturesDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_MYPICTURES"
 	folder, err := get_win_folder_from_registry(csidl)
 	if err != nil {
@@ -167,7 +169,7 @@ func  UserPicturesDir(dir core.PlatformParams) (string, error) {
 	return filepath.Clean(folder), nil
 }
 
-func  UserVideosDir(dir core.PlatformParams) (string, error) {
+func UserVideosDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_MYVIDEO"
 	folder, err := get_win_folder_from_registry(csidl)
 	if err != nil {
@@ -176,7 +178,7 @@ func  UserVideosDir(dir core.PlatformParams) (string, error) {
 	return filepath.Clean(folder), nil
 }
 
-func  UserMusicDir(dir core.PlatformParams) (string, error) {
+func UserMusicDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_MYMUSIC"
 	folder, err := get_win_folder_from_registry(csidl)
 	if err != nil {
@@ -185,7 +187,7 @@ func  UserMusicDir(dir core.PlatformParams) (string, error) {
 	return filepath.Clean(folder), nil
 }
 
-func  UserDesktopDir(dir core.PlatformParams) (string, error) {
+func UserDesktopDir(dir core.PlatformParams) (string, error) {
 	csidl := "CSIDL_DESKTOPDIRECTORY"
 	folder, err := get_win_folder_from_registry(csidl)
 	if err != nil {
@@ -195,8 +197,8 @@ func  UserDesktopDir(dir core.PlatformParams) (string, error) {
 }
 
 /*
-	runtime directory tied to the user, e.g.
-	`%USERPROFILE%\\AppData\\Local\\Temp\\$appauthor\\$appname``
+runtime directory tied to the user, e.g.
+`%USERPROFILE%\\AppData\\Local\\Temp\\$appauthor\\$appname“
 */
 func UserRuntimeDir(dir core.PlatformParams) (string, error) {
 	folder, err := get_win_folder_from_registry("CSIDL_LOCAL_APPDATA")

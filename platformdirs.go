@@ -1,8 +1,8 @@
 package platformdirs
 
 import (
-	"github.com/christopherdavenport/platformdirs-go/internal/core"
-	"github.com/christopherdavenport/platformdirs-go/internal"
+	"github.com/OGDeguy/platformdirs-go/internal"
+	"github.com/OGDeguy/platformdirs-go/internal/core"
 )
 
 type PlatformDirs struct {

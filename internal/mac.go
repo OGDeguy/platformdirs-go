@@ -1,8 +1,9 @@
 //go:build darwin || ios
+
 package internal
 
 import (
-	"github.com/christopherdavenport/platformdirs-go/internal/core"
+	"github.com/OGDeguy/platformdirs-go/internal/core"
 	"os"
 	"path"
 	// "strings"
