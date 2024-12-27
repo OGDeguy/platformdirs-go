@@ -1,4 +1,4 @@
-module github.com/christopherdavenport/platformdirs-go
+module github.com/OGDeguy/platformdirs-go
 
 go 1.21
 
